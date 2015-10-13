@@ -5,10 +5,10 @@
                     :method => "delete"} %></h3>
 <ul>
   <% @section.lessons.each do |lesson| %>
-  <li><%= link_to lesson.title, lesson_path(lesson) %></li>
+  <li><%= link_to lesson.title, section_lesson_path(@section, lesson) %></li>
   <% end %>
 </ul>
 
-<p><%= link_to "Add New Lesson", new_section_lesson_path(section) %></p>
+<p><%= link_to "Add New Lesson", new_section_lesson_path(@section) %></p>
 
 <%= link_to "Table of Contents", chapters_path %>
