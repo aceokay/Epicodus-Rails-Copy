@@ -38,7 +38,7 @@ class LessonsController < ApplicationController
     @section = Section.find(params[:section_id])
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
-    redirect_to section_lessons_path(@section)
+    redirect_to chapter_section_path(@section, @section)
   end
 
   private

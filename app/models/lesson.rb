@@ -8,6 +8,5 @@ class Lesson < ActiveRecord::Base
 
   def previous
     Section.find(self.section_id).lessons.where("number < ?", number).first
-    # self.class.where("number < ?", number).first
   end
 end
