@@ -3,10 +3,11 @@ class Lesson < ActiveRecord::Base
   validates :title, :presence => true
 
   def next
-    self.class.where("number > ?", number).first
+    Section.find(self.section_id).lessons.where("number > ?", number).first
   end
 
   def previous
-    self.class.where("number < ?", number).first
+    Section.find(self.section_id).lessons.where("number < ?", number).first
+    # self.class.where("number < ?", number).first
   end
 end

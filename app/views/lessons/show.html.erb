@@ -6,7 +6,11 @@
 
 <p><%= link_to "Edit", edit_section_lesson_path(@section, @lesson) %></p>
 <p><%= link_to "Delete", section_lesson_path(@section, @lesson), :data => {:confirm => "You sure?", :method => "delete"} %></p>
-
-<%= link_to "Next Lesson", chapters_path %>
-<%= link_to "Section Contents", chapter_section_path(@section, @lesson) %>
+<% if @previous != nil %>
+  <%= link_to "Previous Lesson", section_lesson_path(@section, @previous) %>
+<% end %>
+<% if @next != nil %>
+  <%= link_to "Next Lesson", section_lesson_path(@section, @next) %>
+<% end %>
+<%= link_to "Section Contents", chapter_section_path(@section, @section) %>
 <%= link_to "Table of Contents", chapters_path %>

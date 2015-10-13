@@ -1,11 +1,9 @@
 class LessonsController < ApplicationController
-  def index
-    @lessons = Lesson.all
-  end
-
   def show
     @section = Section.find(params[:section_id])
     @lesson = Lesson.find(params[:id])
+    @next = @lesson.next()
+    @previous = @lesson.previous()
   end
 
   def new
@@ -37,9 +35,10 @@ class LessonsController < ApplicationController
   end
 
   def destroy
+    @section = Section.find(params[:section_id])
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
-    redirect_to lessons_path
+    redirect_to section_lessons_path(@section)
   end
 
   private
