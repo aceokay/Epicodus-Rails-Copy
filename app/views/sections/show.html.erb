@@ -4,7 +4,7 @@
               :data => {:confirm => "You sure?",
                     :method => "delete"} %></h3>
 <ul>
-  <% @section.lessons.each do |lesson| %>
+  <% @lessons.each do |lesson| %>
   <li><%= link_to lesson.title, section_lesson_path(@section, lesson) %></li>
   <% end %>
 </ul>
