@@ -1,10 +1,15 @@
 <h1>Table of contents</h1>
 
 <% @chapters.each do |chapter| %>
-<h3><%= chapter.title %></h3>
+<h3>
+  <%= chapter.title %>
+  <%= link_to "Delete", chapter_path(chapter),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %>
+</h3>
 <ul>
   <% chapter.sections.each do |section| %>
-  <li><%= link_to section.title, section_path(section) %></li>
+  <li><%= link_to section.title, chapter_section_path(chapter, section) %></li>
   <% end %>
 </ul>
 <p><%= link_to "Add New Section", new_chapter_section_path(chapter) %></p>

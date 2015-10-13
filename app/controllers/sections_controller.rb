@@ -1,9 +1,6 @@
 class SectionsController < ApplicationController
-  def index
-    @sections = Section.all
-  end
-
   def show
+    @chapter = Chapter.find(params[:chapter_id])
     @section = Section.find(params[:id])
   end
 
@@ -19,19 +16,6 @@ class SectionsController < ApplicationController
       redirect_to chapters_path
     else
       render :new
-    end
-  end
-
-  def edit
-    @section = Section.find(params[:id])
-  end
-
-  def update
-    @section = Section.find(params[:id])
-    if @section.update(section_params)
-      redirect_to section_path
-    else
-      render :edit
     end
   end
 

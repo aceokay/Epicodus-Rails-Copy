@@ -3,10 +3,6 @@ class ChaptersController < ApplicationController
     @chapters = Chapter.all
   end
 
-  def show
-    @chapter = Chapter.find(params[:id])
-  end
-
   def new
     @chapter = Chapter.new
   end
@@ -17,19 +13,6 @@ class ChaptersController < ApplicationController
       redirect_to chapters_path
     else
       render :new
-    end
-  end
-
-  def edit
-    @chapter = Chapter.find(params[:id])
-  end
-
-  def update
-    @chapter = Chapter.find(params[:id])
-    if @chapter.update(chapter_params)
-      redirect_to chapter_path
-    else
-      render :edit
     end
   end
 
