@@ -5,4 +5,8 @@ class Lesson < ActiveRecord::Base
   def next
     self.class.where("number > ?", number).first
   end
+
+  def previous
+    self.class.where("number < ?", number).first
+  end
 end
