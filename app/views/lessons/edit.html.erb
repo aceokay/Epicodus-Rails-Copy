@@ -1,0 +1,22 @@
+<h1>Edit lesson</h1>
+
+<% if @lesson.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @lesson.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @lesson do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.label :number %>
+  <%= f.number_field :number %>
+  <%= f.submit  %>
+<% end %>
+
+<p><%= link_to "Return to lessons", lessons_path %></p>

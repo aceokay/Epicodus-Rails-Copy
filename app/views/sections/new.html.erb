@@ -1,0 +1,7 @@
+<h1>New Section</h1>
+
+<%= form_for [@chapter, @section] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.submit  %>
+<% end %>
